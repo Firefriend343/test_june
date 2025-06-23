@@ -28,7 +28,21 @@ public class Blank {
         
         return output;
     }
+    public static boolean isCamelCase(String s) {
+        if (s == null || s.isEmpty()) {
+            return false;
+        }
+        if (!(Character.isLetter(s.charAt(0)) && Character.isLowerCase(s.charAt(0)))) {
+            return false;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (!(Character.isLetter(s.charAt(0)) || Character.isDigit(s.charAt(i)))) {
+                return false;
+            }
+        }
+        return true;
+    }
     public static void main(String[] args) {
-        System.out.print(findWords("The 2025 Super Rugby Pacific final, stylised as the 2025 Super Rugby Pacific Grand Final was the final match of the 2025 Super Rugby Pacific season and the decider of the Finals Series, the thirtieth season of the Southern Hemisphere's premier rugby union competition organised by SANZAAR. It was the thirtieth Super Rugby final, and the eighth all-New Zealand final. It was played on 21 June 2025 at Apollo Projects Stadium, Christchurch."));
+        System.out.print(isCamelCase("hHello"));
     }
 }
